@@ -1,0 +1,31 @@
+<h2>Tree maintenance service</h2>
+<p class="intro">
+    We specialize in tree trimming, clearing, stump removal, pruning, trimming, emergency services, and more.
+    We are available 24/7 for emergency work. Call us for a free quote.
+</p>
+<div class="carousel-container">
+
+    <!-- Botón Izquierda -->
+    <button class="nav-button left" (click)="prev()">❮</button>
+  
+    <!-- Carrusel -->
+    <mat-tab-group [(selectedIndex)]="selectedIndex" animationDuration="600ms" class="carousel-tabs">
+        @for (item of slides; track $index) {
+            <mat-tab>
+                <img class="carousel-img" [src]="item.img" [alt]="item.alt">
+            </mat-tab>
+        }
+    </mat-tab-group>
+  
+    <!-- Botón Derecha -->
+    <button class="nav-button right" (click)="next()">❯</button>
+  
+    <!-- Indicadores -->
+    <div class="indicators">
+        @for (item of slides; track $index) {
+            <span [class.active]="$index === selectedIndex" (click)="goTo($index)">
+            </span>
+            }
+    </div>
+  
+  </div>

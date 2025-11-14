@@ -1,0 +1,47 @@
+# .gitlab-ci.yml
+image: node:20
+
+stages:
+  - build
+  - deploy
+
+variables:
+  DIST_FOLDER: "dist/yassertreeservice/browser"
+  PUBLIC_DIR: "public"
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - npm ci
+
+build:
+  stage: build
+  script:
+    # Build de producción para Angular 20 SSR
+    - npm run build -- --configuration production --output-path dist/yassertreeservice
+    # Crear carpeta public para GitLab Pages
+    - mkdir -p $PUBLIC_DIR
+    # Copiar todos los archivos de browser a public
+    - cp -r $DIST_FOLDER/* $PUBLIC_DIR/
+    # Copiar index.html como 404.html para manejo de rutas SPA
+    - cp $PUBLIC_DIR/index.html $PUBLIC_DIR/404.html
+  artifacts:
+    paths:
+      - $PUBLIC_DIR
+    expire_in: 1 week
+
+pages:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    # GitLab Pages sirve todo desde public/
+    - echo "Deploying Angular app to GitLab Pages"
+  artifacts:
+    paths:
+      - $PUBLIC_DIR
+  only:
+    - main
