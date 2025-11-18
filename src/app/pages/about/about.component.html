@@ -42,4 +42,16 @@
       <p>We are experts in tree care, licensed and insured.</p>
     </mat-card>
   </div>
+
+  <mat-card class="video-section" style="margin-top: 30px">
+    <h3>Videos of completed projects</h3>
+  
+    <div class="video-row">
+      @for (video of videoList; track $index) {
+        <div class="video-card">
+          <iframe [src]="video | urlSafe" frameborder="0" allowfullscreen></iframe>
+        </div>
+      }
+    </div>
+  </mat-card>
   

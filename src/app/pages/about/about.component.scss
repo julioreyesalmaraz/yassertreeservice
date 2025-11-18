@@ -105,4 +105,60 @@
       .info-card p, .info-card mat-list-item { font-size: 0.9rem; }
     }
   }
+
+  .video-section {
+    padding: 1.5rem;
+    background: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  
+    h3 {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+  }
+  
+  .video-row {
+    display: flex;
+    flex-wrap: wrap;            // permite que bajen en pantallas pequeñas
+    gap: 1rem;
+    justify-content: flex-start; // alinea a la izquierda
+  }
+  
+  .video-card {
+    flex: 0 1 calc(25% - 1rem); // 4 videos por fila en pantalla grande
+    aspect-ratio: 16 / 9;
+    min-width: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-4px);
+    }
+  
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+  
+  /* Responsive: 2 por fila en tablet, 1 por fila en móvil */
+  @media (max-width: 1024px) {
+    .video-card {
+      flex: 0 1 calc(50% - 1rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .video-card {
+      flex: 1 1 100%;
+    }
+  }
   
