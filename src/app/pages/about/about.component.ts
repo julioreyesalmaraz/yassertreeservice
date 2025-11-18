@@ -14,6 +14,7 @@ import { UrlSafePipe } from '../../pipes/url-safe-pipe';
 export class AboutComponent {
   
   videoList = [
-    'https://www.youtube.com/embed/735r_ho18EE'
+    'https://www.youtube.com/embed/735r_ho18EE',
+    'https://www.youtube.com/embed/Ol4pyg5eQu0'
   ];
 }
