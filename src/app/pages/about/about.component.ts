@@ -15,6 +15,9 @@ export class AboutComponent {
   
   videoList = [
     'https://www.youtube.com/embed/735r_ho18EE',
-    'https://www.youtube.com/embed/Ol4pyg5eQu0'
+    'https://www.youtube.com/embed/Ol4pyg5eQu0',
+    'https://www.youtube.com/embed/moCUC1B7K8Q',
+    'https://www.youtube.com/embed/Tp3ZT0javRQ',
+    'https://www.youtube.com/embed/IkhS15WkrSM',
   ];
 }
